@@ -21,7 +21,7 @@
 
 
     <div class="form-group">
-        <textarea name="content" class="center" placeholder="Комментарий" required></textarea><br>
+        <textarea name="content" class="center" placeholder="Комментарий*" required></textarea><br>
     </div>
     <br>
     <div class="form-group">
@@ -33,7 +33,7 @@
     </div>
     <br>
     <div class="form-group">
-        <input type="text" class="center" name="author" placeholder="Сайт" required><br>
+        <input type="text" class="center" name="site" placeholder="Сайт" ><br>
     </div>
     <input type="hidden" name="_token" value="{{csrf_token()}}">
     <input type="submit" value="Отправить">

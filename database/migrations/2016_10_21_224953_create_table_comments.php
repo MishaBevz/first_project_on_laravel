@@ -20,6 +20,7 @@ class CreateTableComments extends Migration
             $table->text('content');
             $table->string('author');
             $table->string('email');
+            $table->string('site');
             $table->boolean('published')->default(0);
             $table->timestamps();
         });

@@ -51,6 +51,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
+                        <li><a href="/feedback">Обратная связь</a> </li>
                         @if (Auth::Check())
                             @if(Auth::user()->id == 1) <!-- id пользователя admin = 1.Если вошел admin,даем ему доступ к созданию статьи. !-->
                         <li><a href="{{url('/createpost')}}">Создать статью</a> </li>
@@ -80,6 +81,7 @@
                                 </ul>
                             </li>
                         @endif
+
                     </ul>
                 </div>
             </div>

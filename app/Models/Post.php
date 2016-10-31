@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     protected $table="posts";
-    protected $fillable=['title','slug','excerpt','content','published'];
+    protected $fillable=['title','slug','excerpt','image','content','published'];
 
 
     public function getPublishedPosts()

@@ -17,5 +17,12 @@ Route::get('/home', 'HomeController@index');
 
 Route::post('/post/{id}', 'CommentsController@save');
 
-Route::post('/createpost', 'CreatePostController@save');
-Route::get('/createpost', 'CreatePostController@index');
+
+Route::post('createpost', 'CreatePostController@save');
+Route::get('createpost', 'CreatePostController@index');
+
+Route::get('feedback', 'FeedbackController@index');
+Route::post('feedback', 'FeedbackController@sendEmailReminder');
+
+
+

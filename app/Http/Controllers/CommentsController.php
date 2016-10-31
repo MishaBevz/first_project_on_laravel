@@ -8,6 +8,8 @@ use App\Http\Requests;
 
 use App\Models\Comments;
 
+
+
 class CommentsController extends Controller
 {
     public function save(Request $request, $id)

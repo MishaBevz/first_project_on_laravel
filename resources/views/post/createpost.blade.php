@@ -5,9 +5,11 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
+            <br>
             <div class="panel panel-default">
                 <div class="panel-heading">Новая статья</div>
                 <div class="panel-body">
+                <br>
 <form class="form-horizontal" method="POST" enctype="multipart/form-data" >
     {{ csrf_field() }}
 
@@ -41,12 +43,25 @@
         {!! $errors->first('content') !!}
     @endif
     <br>
+    Категория:<br>
+    <select name="category_id">
+        @foreach($categories as $category)
+        <option value="{{$category->id}}">{{$category->title}}</option>
+        @endforeach
+    </select>
+    @if($errors->has('category_id'))
+        {!! $errors->first('category_id') !!}
+    @endif
+    <br>
+    <br>
     Опубликовать?<br>
     <select name="published">
         <option value="1">Да</option>
         <option value="0">Нет</option>
     </select>
-    <input type="submit" value="Отправить" class="btn btn-primary">
+    <br>
+    <br>
+    <input type="submit" value="Отправить" class="btn-primary">
 </form>
                 </div>
                 </div>

@@ -8,7 +8,7 @@ use App\Http\Requests;
 
 use App\Models\Post;
 use Illuminate\Support\Facades\Redirect;
-
+use App\Models\Categories;
 use Validator;
 use Image;
 use Illuminate\Support\Facades\Input;
@@ -30,7 +30,7 @@ class CreatePostController extends Controller
 
         //}
         //else{
-
+        $categories=Categories::all();
         $input = Input::all();
         $rules = array(
             'title' => 'required',
@@ -50,7 +50,9 @@ class CreatePostController extends Controller
             $post->slug=Input::get('slug');
             $post->excerpt=Input::get('excerpt');
             $post->content=Input::get('content');
+            $post->category_id=Input::get('category_id');
             $post->published=Input::get('published');
+
 
             if($request->hasFile('image')){
                 $image = $request->file('image');
@@ -60,7 +62,7 @@ class CreatePostController extends Controller
 
             }
             $post->save();
-            return view('post.createpost');
+            return view('post.createpost',['categories'=>$categories]);
             //return Redirect::to('createpost')->with('success','Data submited');
 
         }
@@ -79,10 +81,18 @@ class CreatePostController extends Controller
         //return view('post.createpost');
     }
 
-    public function index()
-    {
 
-        return view('post.createpost');
+
+
+
+    public function show()
+    {
+        $categories=Categories::all();
+        return view('post.createpost',['categories'=>$categories]);
     }
+
+
+
+
 
 }

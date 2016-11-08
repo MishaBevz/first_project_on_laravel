@@ -7,19 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     protected $table="posts";
-    protected $fillable=['title','slug','excerpt','image','content','published'];
+    protected $fillable=['title','slug','excerpt','image','content','published','category_id'];
 
 
-    public function getPublishedPosts()
-    {
-        //$p=Post::all()->where('published','=>', true);
-        $posts=Post::where('published','=', 1)->paginate(2);
-            //->where('published','=>', true);
-
-
-
-        return $posts;
-    }
 
     public function comments()
     {

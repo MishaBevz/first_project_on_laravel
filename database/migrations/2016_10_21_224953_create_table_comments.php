@@ -17,10 +17,10 @@ class CreateTableComments extends Migration
         Schema::create('comments', function (Blueprint $table){
             $table->increments('id');
             $table->integer('post_id');
+            $table->integer('user_id');
             $table->text('content');
             $table->string('author');
-            $table->string('email');
-            $table->string('site');
+            //$table->string('avatar_comment');
             $table->boolean('published')->default(0);
             $table->timestamps();
         });

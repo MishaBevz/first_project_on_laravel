@@ -13,6 +13,8 @@
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
 
+
+
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
@@ -54,7 +56,19 @@
                         <li><a href="/feedback">Обратная связь</a> </li>
                         @if (Auth::Check())
                             @if(Auth::user()->id == 1) <!-- id пользователя admin = 1.Если вошел admin,даем ему доступ к созданию статьи. !-->
-                        <li><a href="{{url('/createpost')}}">Создать статью</a> </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="position: relative; padding-left: 50px">
+                                        Добавить элементы <span class="caret"></span>
+                                    </a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <a href="{{ url('/createpost') }}">Добавить статью</a>
+                                                <a href="{{ url('/newcategory') }}">Добавить категорию</a>
+                                            </li>
+                                        </ul>
+                                    </a>
+                                </li>
+
                             @endif
                         @endif
                         @if (Auth::guest())
@@ -62,12 +76,14 @@
                             <li><a href="{{ url('/register') }}">Регистрация</a></li>
                         @else
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="position: relative; padding-left: 50px">
+                                    <img src="/img/avatar/{{ Auth::user()->avatar }}" style="width:32px;height:32px; position:absolute; top:10px; left:10px; border-radius:50%">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
+                                        <a href="{{ url('/profile') }}">Profile</a>
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

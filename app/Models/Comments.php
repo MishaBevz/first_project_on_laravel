@@ -8,6 +8,6 @@ class Comments extends Model
 {
     //
     protected $table="comments";
-    protected $fillable=['author','email','content','post_id'];
+    protected $fillable=['author','avatar_comment','content','post_id'];
 
 }
